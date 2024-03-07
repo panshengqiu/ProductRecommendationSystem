@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- 引入外部js文件 -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<div id="page_head" >
+    <img src="https://bpic.588ku.com/element_origin_min_pic/19/04/09/3797fc9fffbed18b973f5ce53f0b287a.jpg" alt="logo">
+    <form action="{{ url_for('result') }}" method="GET">
+        <!-- 引入外部样式表 -->
+        <select id="search_type">
+            <option value="product">产品</option>
+            <option value="shop">店铺</option>
+        </select>
+        <!-- 路由到查询结果 -->
+        <input type="text" name="query" placeholder="搜索相关商品">
+        <input type="submit" value="搜索">
+    </form>
+
+</div>
+<hr>
+<div id = "chaoge">
+
+</div>
+<div><h2 id="recommandation_text">查找到以下商品：</h2></div>
+<div id="all_product">
+    <!-- 使用flex-wrap属性使得子元素在一行放不下时自动换行 -->
+    <div class="one_row_product" style="flex-wrap: wrap;">
+        <!-- 请注意修改图片路径 -->
+        {% for product_info in products %}
+        <div class="product">
+            <div class="product_img"><img src="{{ product_info['product']['img_link'] }}" alt="商品图片"></div>
+            <div class="product_name"><a href= "{{ product_info['product']['product_link']}}">{{ product_info['product']['name'] }}</a></div>
+            <div class="product_price">产品价格：{{ product_info['product']['price'] }}</div>
+            <div class="pay_num">付款人数：{{ product_info['product']['buy_num'] }}</div>
+            <div class="product_seller"><a href="{{ product_info['shop_link']}}">商家：{{ product_info['seller_name'] }}</a></div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <div><h2>为您推荐相关性较高的商品↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓：</h2></div>
+        <hr>
+        <br>
+    <div class="one_row_product" style="flex-wrap: wrap;">
+
+        {% for product_info in recommandation_product %}
+           <div class="product">
+               <div class="product_img"><img src="{{ product_info['product']['img_link'] }}" alt="商品图片"></div>
+               <div class="product_name"><a href = "{{ product_info['product']['product_link']}}">{{ product_info['product']['name'] }}</a></div>
+               <div class="product_price">产品价格：{{ product_info['product']['price'] }}</div>
+               <div class="pay_num">付款人数：{{ product_info['product']['buy_num'] }}</div>
+               <div class="product_seller"><a href = "{{ product_info['shop_link']}}">商家：{{ product_info['seller_name'] }} </a></div>
+           </div>
+        {% endfor %}
+    </div>
+
+</div>
+<script defer>
+    // 在页面加载完成后执行以下代码
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取页面上的某个元素（例如，通过id获取page_head元素）
+        var chaoGeDiv = document.getElementById('chaoge');
+        // 创建一个图片路径数组
+        var imgs = ["https://www.bjut.edu.cn/__local/B/D3/34/3C998F1356DA18C07DF2E3988A8_3D227381_8CB6A.png", "https://yanzhao.bjut.edu.cn/__local/7/23/C8/FCA8A1B4DC786E44AA417C86D4D_25423FC4_8CD9.jpg?e=.jpg", "https://www.bing.com/...", "https://www.bjut.edu.cn/jjyglxy/images/20da.png"];
+        // 创建一个变量，记录当前图片的索引
+        var index = 0;
+        // 使用定时器，每隔1秒切换图片
+        setInterval(function() {
+            // 切换图片的背景
+            // chaoGeDiv.style.opacity = 0.5;
+            chaoGeDiv.style.backgroundImage = "url('" + imgs [index] + "')";
+            // chaoGeDiv.style.backgroundRepeat = "no-repeat";
+            // 更新索引，如果超过数组长度，就从头开始
+            index = (index + 1) % imgs.length;
+        }, 2000);
+
+        // 创建一个新的div元素
+        var newDiv = document.createElement('div');
+        // 设置newDiv的css样式
+        newDiv.style = "color: red; font-size: 30px;height: 100px; width: 2000px;"
+        // 将新div元素添加到page_head元素中
+        chaoGeDiv.appendChild(newDiv);
+
+        // 使用定时器每隔一秒更新显示内容
+        setInterval(function() {
+            // 设置新div的文本内容为"超哥最帅"，并在原有内容的基础上追加
+            newDiv.textContent = newDiv.textContent === "好物推荐" ? "超哥最帅" : "好物推荐";
+            if(newDiv.style.fontSize == "30px"){
+                newDiv.style.fontSize = "80px";
+            }else{
+                newDiv.style.fontSize = "30px";
+            }
+            newDiv.textContent.fontsize()
+        }, 1500); // 1000毫秒 = 1秒
+    });
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#page_head {
+    /*background-color: #f0f0f0; !* 设置背景色，可以根据需要修改 *!*/
+    padding: 10px; /* 设置内边距，可以根据需要修改 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#page_head img {
+    max-height: 50px; /* 设置logo的最大高度，可以根据需要修改 */
+}
+
+#page_head form {
+    display: flex;
+}
+
+#page_head input[type="text"] {
+    padding: 10px; /* 设置文本框的内边距，可以根据需要修改 */
+    width: 600px; /* 设置文本框的宽度，可以根据需要修改 */
+    border: 2px solid #ff8000; /* 设置边框颜色为蓝色 */
+    border-radius: 15px; /* 设置边框为圆形 */
+}
+
+#page_head input[type="submit"] {
+    margin-left: 5px; /* 设置按钮距离文本框的间距，可以根据需要修改 */
+    padding: 10px; /* 设置按钮的内边距，可以根据需要修改 */
+    background-color: #ffa600; /* 设置按钮的背景颜色为黄色 */
+    border: none; /* 去掉按钮的边框 */
+    border-radius: 15px; /* 设置边框为圆形 */
+    font-family: 'Microsoft YaHei', sans-serif; /* 设置按钮文字为微软黑体 */
+}
+
+h2 {
+    color: #ff7614;
+    font-family:'Microsoft YaHei', sans-serif;
+}
+
+#all_product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.one_row_product {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px;
+    flex-wrap: wrap; /* 使用flex-wrap属性使得子元素在一行放不下时自动换行 */
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;  /* 你想要的固定宽度 */
+    height: 300px; /* 你想要的固定高度 */
+}
+#search_type{
+    font-size: 14px;
+    /*    右对齐*/
+    text-align: right;
+    margin-right: 10px;
+    padding: 10px; /* 设置按钮的内边距，可以根据需要修改 */
+    background-color: #ffa600; /* 设置按钮的背景颜色为黄色 */
+    border-radius: 15px; /* 设置边框为圆形 */
+    font-family: 'Microsoft YaHei', sans-serif; /* 设置按钮文字为微软黑体 */
+}
+
+
+.product_img {
+    width: 200px; /* 设置图片的宽度，可以根据需要修改 */
+    height: 200px; /* 设置图片的高度，可以根据需要修改 */
+    overflow: hidden; /* 隐藏超出容器的部分 */
+}
+
+.product_img img {
+    width: 100%; /* 设置图片的宽度为容器的宽度 */
+    height: auto; /* 设置图片的高度为自适应 */
+}
+
+.product_name {
+    font-size: 18px; /* 设置商品名称的字体大小，可以根据需要修改 */
+    font-weight: bold; /* 设置商品名称的字体粗细，可以根据需要修改 */
+    color: #333; /* 设置商品名称的字体颜色，可以根据需要修改 */
+    margin-top: 10px; /* 设置商品名称距离图片的间距，可以根据需要修改 */
+}
+
+.product_price {
+    font-size: 16px; /* 设置价格的字体大小，可以根据需要修改 */
+    color: #f00; /* 设置价格的字体颜色，可以根据需要修改 */
+    margin-top: 5px; /* 设置价格距离商品名称的间距，可以根据需要修改 */
+}
+
+.product_merchant {
+    font-size: 14px; /* 设置商家的字体大小，可以根据需要修改 */
+    color: #999; /* 设置商家的字体颜色，可以根据需要修改 */
+    margin-top: 5px; /* 设置商家距离价格的间距，可以根据需要修改 */
+}
+
+.pay_num {
+    font-size: 14px; /* 设置付款数量的字体大小，可以根据需要修改 */
+    color: #999; /* 设置付款数量的字体颜色，可以根据需要修改 */
+    margin-top: 5px; /* 设置付款数量距离商家的间距，可以根据需要修改 */
+}
+
+button {
+    padding: 10px; /* 设置按钮的内边距，可以根据需要修改 */
+    background-color: #ffa600; /* 设置按钮的背景颜色为黄色 */
+    border: none; /* 去掉按钮的边框 */
+    border-radius: 15px; /* 设置边框为圆形 */
+    font-family: 'Microsoft YaHei', sans-serif; /* 设置按钮文字为微软黑体 */
+    margin-top: 20px; /* 设置按钮距离商品列表的间距，可以根据需要修改 */
+}
